@@ -3,6 +3,13 @@ def intersection(arrays):
     YOUR CODE HERE
     """
     # Your code here
+    # O(n^2)
+    cache = dict()
+
+    for arr in arrays:
+        for num in arr:
+            cache[num] = cache.get(num, 0) + 1
+    result = [count[0] for count in cache.items() if count[1] == len(arrays)]
 
     return result
 
